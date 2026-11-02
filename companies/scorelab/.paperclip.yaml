@@ -1,0 +1,69 @@
+schema: paperclip/v1
+
+company:
+  requireBoardApprovalForNewAgents: true
+
+agents:
+  ceo:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5-5
+    budgetMonthlyCents: 1500
+    permissions:
+      canCreateAgents: false
+  content-lead:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5-5
+    budgetMonthlyCents: 4000
+  social-media-manager:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-5-5
+    budgetMonthlyCents: 2500
+    inputs:
+      env:
+        ELEVENLABS_API_KEY:
+          kind: secret
+          requirement: optional
+  engineer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-5-5
+    budgetMonthlyCents: 4000
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+
+routines:
+  daily-current-affairs:
+    triggers:
+      - kind: schedule
+        cronExpression: "13 6 * * *"
+        timezone: Asia/Kolkata
+  daily-question-set:
+    triggers:
+      - kind: schedule
+        cronExpression: "17 7 * * *"
+        timezone: Asia/Kolkata
+  daily-post-pack:
+    triggers:
+      - kind: schedule
+        cronExpression: "23 10 * * *"
+        timezone: Asia/Kolkata
+  weekly-content-calendar:
+    triggers:
+      - kind: schedule
+        cronExpression: "11 17 * * 0"
+        timezone: Asia/Kolkata
+  weekly-plan:
+    triggers:
+      - kind: schedule
+        cronExpression: "47 8 * * 1"
+        timezone: Asia/Kolkata
