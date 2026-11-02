@@ -52,7 +52,7 @@ Budgets are a starting point; each agent pauses automatically at its limit. Chan
    paperclipai company import --from ./companies/scorelab
    ```
 
-   or from GitHub: `paperclipai company import --from https://github.com/deepakscorelab/paperclip/tree/main/companies/scorelab`
+   or from GitHub: `paperclipai company import --from https://github.com/deepakscorelab/paperclip/tree/master/companies/scorelab`
 3. Optional secrets: `ELEVENLABS_API_KEY` (voiceovers for the Social Media Manager) and `GH_TOKEN` (lets the Engineer open pull requests).
 4. Open the CEO's **Company kickoff** task and let it run. Review drafts in your inbox each day.
 
